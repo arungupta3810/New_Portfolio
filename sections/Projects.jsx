@@ -1,7 +1,7 @@
 // Projects — list with click-to-expand Problem/Solution/Impact
 const projects = [
   {
-    name: "eos-comp",
+    name: "EOS-COMP",
     desc: "An Angular component library published to NPM. Architected to eliminate duplicated UI work across enterprise projects.",
     tags: ["Angular", "TypeScript", "NPM", "Architecture"],
     impact: "60%",
@@ -44,18 +44,7 @@ const projects = [
     problem: "Schools were stitching together Zoom links and spreadsheets to schedule parent-teacher meetings. Friction at every step.",
     solution: "Built a native LMS-integrated video conferencing flow. Single-click join, recording, attendance — all from inside the app.",
     impactDetail: "Won the company-wide hackathon in Thailand. Second international win in twelve months.",
-  },
-  {
-    name: "[ Personal Project ]",
-    desc: "Coming soon — a personal experiment in real-time collaboration. Open-source, in progress.",
-    tags: ["TBA", "Side Quest"],
-    impact: "WIP",
-    impactLabel: "In progress",
-    year: "2026",
-    problem: "(Reserved for a personal project Arun is currently building. Replace this card with the real one when ready.)",
-    solution: "—",
-    impactDetail: "—",
-  },
+  }
 ];
 
 const ProjectRow = ({ p, idx }) => {

@@ -65,6 +65,7 @@ const App = () => {
       <Impact />
       <Certificates />
       <Philosophy accent={tweaks.accent} />
+      <LeadForm />
       <Contact />
 
       <TweaksPanel title="Tweaks">

@@ -31,7 +31,7 @@ const Hero = ({ headlineVariant }) => {
       <div className="container">
         <div className="hero-meta">
           <span><span className="dot" /> Available · Mumbai, IN</span>
-          <span>Senior Full Stack · Atrina</span>
+          <span>Senior Frontend Engineer · Atrina</span>
           <span>04 / 2026</span>
         </div>
 

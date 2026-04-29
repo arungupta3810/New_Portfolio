@@ -3,7 +3,7 @@ const Contact = () =>
 <section className="contact" id="contact">
     <div className="contact-glow" />
     <div className="container">
-      <span className="eyebrow">07 — The Next Chapter</span>
+      <span className="eyebrow">08 — The Next Chapter</span>
       <h2 style={{ marginTop: 32 }}>
         Got something <span className="italic" style={{ color: "var(--accent)" }}>worth building?</span>
       </h2>
