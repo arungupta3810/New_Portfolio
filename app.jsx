@@ -10,7 +10,7 @@ const ACCENTS = {
 };
 
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "theme": "cinematic",
+  "theme": "dark",
   "accent": "amber",
   "intensity": "medium",
   "headline": "story"
@@ -19,6 +19,8 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const App = () => {
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [progress, setProgress] = useState(0);
+
+  const handleSetTweak = setTweak;
 
   useEffect(() => {
     document.body.dataset.theme = tweaks.theme;
@@ -50,11 +52,11 @@ const App = () => {
           <span className="mono-tag">/ portfolio</span>
         </div>
         <div className="nav-links">
-          <a href="#journey">Journey</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Work</a>
-          <a href="#certs">Awards</a>
-          <a href="#contact">Contact</a>
+          <a href="#journey" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Journey</a>
+          <a href="#skills"  onClick={() => navigator.vibrate && navigator.vibrate(30)}>Skills</a>
+          <a href="#projects" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Work</a>
+          <a href="#certs"   onClick={() => navigator.vibrate && navigator.vibrate(30)}>Awards</a>
+          <a href="#contact" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Contact</a>
         </div>
       </nav>
 
@@ -74,7 +76,7 @@ const App = () => {
           label="Mode"
           value={tweaks.theme}
           options={["cinematic", "dark", "light"]}
-          onChange={(v) => setTweak("theme", v)}
+          onChange={(v) => handleSetTweak("theme", v)}
         />
 
         <TweakSection label="Accent color" />

@@ -50,7 +50,7 @@ const projects = [
 const ProjectRow = ({ p, idx }) => {
   const [open, setOpen] = React.useState(false);
   return (
-    <div className={"project " + (open ? "open" : "")} onClick={() => setOpen(!open)}>
+    <div className={"project " + (open ? "open" : "")} onClick={() => { setOpen(!open); navigator.vibrate && navigator.vibrate(open ? 20 : [30, 15, 50]); }}>
       <div className="project-num">0{idx + 1}</div>
       <div>
         <div className="project-title">

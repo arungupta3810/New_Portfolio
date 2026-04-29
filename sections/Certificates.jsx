@@ -39,7 +39,7 @@ const Certificates = () => {
         </div>
         <div className="certs-row">
           {certs.map((c, i) => (
-            <div key={i} className="cert-card" onClick={() => setOpen(c)}>
+            <div key={i} className="cert-card" onClick={() => { setOpen(c); navigator.vibrate && navigator.vibrate([30, 15, 50]); }}>
               <div className="cert-img">
                 <img src={c.img} alt={c.title} />
               </div>
@@ -52,8 +52,8 @@ const Certificates = () => {
           ))}
         </div>
       </div>
-      <div className={"cert-modal " + (open ? "open" : "")} onClick={() => setOpen(null)}>
-        <button className="close" onClick={() => setOpen(null)}>Close · Esc</button>
+      <div className={"cert-modal " + (open ? "open" : "")} onClick={() => { setOpen(null); navigator.vibrate && navigator.vibrate(20); }}>
+        <button className="close" onClick={() => { setOpen(null); navigator.vibrate && navigator.vibrate(20); }}>Close · Esc</button>
         {open && <img src={open.img} alt={open.title} />}
       </div>
     </section>

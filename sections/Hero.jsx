@@ -55,10 +55,10 @@ const Hero = ({ headlineVariant }) => {
         </p>
 
         <div className="hero-cta">
-          <a href="#journey" className="btn btn-primary">
+          <a href="#journey" className="btn btn-primary" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 60])}>
             Explore my journey <span className="arrow">→</span>
           </a>
-          <a href="#contact" className="btn">
+          <a href="#contact" className="btn" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 60])}>
             Get in touch
           </a>
         </div>

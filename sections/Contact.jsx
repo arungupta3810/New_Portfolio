@@ -12,10 +12,10 @@ const Contact = () =>
 
     </p>
       <div className="contact-cta">
-        <a href="mailto:arungupta3810@gmail.com" className="btn btn-primary">
+        <a href="mailto:arungupta3810@gmail.com" className="btn btn-primary" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 80])}>
           arungupta3810@gmail.com <span className="arrow">→</span>
         </a>
-        <a href="https://linkedin.com/in/arun-gupta-148872194" target="_blank" rel="noreferrer" className="btn">
+        <a href="https://linkedin.com/in/arun-gupta-148872194" target="_blank" rel="noreferrer" className="btn" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 80])}>
           LinkedIn DM <span className="arrow">↗</span>
         </a>
       </div>
