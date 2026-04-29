@@ -34,19 +34,20 @@ const App = () => {
     document.documentElement.style.setProperty("--accent-soft", a.soft);
   }, [tweaks]);
 
+  const lastTickYRef = useRef(window.scrollY);
+
   useEffect(() => {
-    const TICK_PX = 200; // vibrate every 200px scrolled
-    let lastTickY = 0;
+    const TICK_PX = 250; // vibrate every 250px scrolled
 
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(Math.min(100, (window.scrollY / Math.max(h, 1)) * 100));
 
       if (navigator.vibrate) {
-        const delta = Math.abs(window.scrollY - lastTickY);
+        const delta = Math.abs(window.scrollY - lastTickYRef.current);
         if (delta >= TICK_PX) {
-          navigator.vibrate([3, 40, 3]);
-          lastTickY = window.scrollY;
+          navigator.vibrate([2, 50, 2]);
+          lastTickYRef.current = window.scrollY;
         }
       }
     };
@@ -57,7 +58,9 @@ const App = () => {
   }, []);
 
   const navClick = () => {
-    navigator.vibrate && navigator.vibrate(30);
+    if (navigator.vibrate) navigator.vibrate(15);
+    // reset scroll tick so haptic fires promptly after nav-jump scroll
+    lastTickYRef.current = window.scrollY;
     closeMenu();
   };
 
