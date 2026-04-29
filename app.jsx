@@ -35,9 +35,8 @@ const App = () => {
   }, [tweaks]);
 
   useEffect(() => {
-    const TICK_PX = 80; // vibrate every 80px scrolled
-    let lastTickY = window.scrollY;
-    let stopTimer = null;
+    const TICK_PX = 200; // vibrate every 200px scrolled
+    let lastTickY = 0;
 
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
@@ -46,20 +45,15 @@ const App = () => {
       if (navigator.vibrate) {
         const delta = Math.abs(window.scrollY - lastTickY);
         if (delta >= TICK_PX) {
-          navigator.vibrate(8);
+          navigator.vibrate([3, 40, 3]);
           lastTickY = window.scrollY;
         }
-        clearTimeout(stopTimer);
-        stopTimer = setTimeout(() => { lastTickY = window.scrollY; }, 200);
       }
     };
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      clearTimeout(stopTimer);
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   const navClick = () => {
