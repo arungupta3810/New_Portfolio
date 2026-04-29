@@ -1,5 +1,5 @@
 // Main app — orchestrates sections, nav, scroll progress, tweaks
-const { useState, useEffect } = React;
+const { useState, useEffect, useRef } = React;
 
 const ACCENTS = {
   amber:   { hex: "#e8a866", glow: "rgba(232,168,102,0.35)", soft: "rgba(232,168,102,0.12)" },
@@ -19,6 +19,9 @@ const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
 const App = () => {
   const [tweaks, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const [progress, setProgress] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
 
   const handleSetTweak = setTweak;
 
@@ -41,6 +44,11 @@ const App = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const navClick = () => {
+    navigator.vibrate && navigator.vibrate(30);
+    closeMenu();
+  };
+
   return (
     <>
       <div className="scroll-progress" style={{ width: progress + "%" }} />
@@ -52,13 +60,28 @@ const App = () => {
           <span className="mono-tag">/ portfolio</span>
         </div>
         <div className="nav-links">
-          <a href="#journey" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Journey</a>
-          <a href="#skills"  onClick={() => navigator.vibrate && navigator.vibrate(30)}>Skills</a>
-          <a href="#projects" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Work</a>
-          <a href="#certs"   onClick={() => navigator.vibrate && navigator.vibrate(30)}>Awards</a>
-          <a href="#contact" onClick={() => navigator.vibrate && navigator.vibrate(30)}>Contact</a>
+          <a href="#journey" onClick={navClick}>Journey</a>
+          <a href="#skills"  onClick={navClick}>Skills</a>
+          <a href="#projects" onClick={navClick}>Work</a>
+          <a href="#certs"   onClick={navClick}>Awards</a>
+          <a href="#contact" onClick={navClick}>Contact</a>
         </div>
+        <button
+          className={"nav-hamburger " + (menuOpen ? "open" : "")}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span /><span /><span />
+        </button>
       </nav>
+
+      <div className={"mobile-menu " + (menuOpen ? "open" : "")}>
+        <a href="#journey" onClick={navClick}>Journey</a>
+        <a href="#skills"  onClick={navClick}>Skills</a>
+        <a href="#projects" onClick={navClick}>Work</a>
+        <a href="#certs"   onClick={navClick}>Awards</a>
+        <a href="#contact" onClick={navClick}>Contact</a>
+      </div>
 
       <Hero headlineVariant={tweaks.headline} />
       <Journey />
