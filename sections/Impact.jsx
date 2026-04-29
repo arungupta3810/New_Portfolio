@@ -57,7 +57,7 @@ const Impact = () => (
           <h2>Impact, measured.<br /><span className="italic dim">Not just claimed.</span></h2>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
-          <img src="assets/portrait.jpg" alt="Arun Gupta"
+          <img src="/assets/portrait.jpg" alt="Arun Gupta"
             style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: "1px solid var(--line-strong)" }} />
           <p className="tagline" style={{ textAlign: "left" }}>Every number below ties to a shipped commit, a deployed feature, or a customer outcome.</p>
         </div>
