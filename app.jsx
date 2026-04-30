@@ -37,13 +37,13 @@ const App = () => {
   const lastTickYRef = useRef(window.scrollY);
 
   useEffect(() => {
-    const TICK_PX = 250; // vibrate every 250px scrolled
+    const TICK_PX = 300; // vibrate every 250px scrolled
 
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(Math.min(100, (window.scrollY / Math.max(h, 1)) * 100));
 
-      if (navigator.vibrate) {
+      if (vibrationUnlocked && navigator.vibrate) {
         const delta = Math.abs(window.scrollY - lastTickYRef.current);
         if (delta >= TICK_PX) {
           navigator.vibrate(15);
@@ -52,8 +52,9 @@ const App = () => {
       }
     };
 
+    let vibrationUnlocked = false;
     const unlockVibration = () => {
-      if (navigator.vibrate) navigator.vibrate(1);
+      vibrationUnlocked = true;
       window.removeEventListener("touchstart", unlockVibration, { passive: true });
     };
     window.addEventListener("touchstart", unlockVibration, { passive: true });
