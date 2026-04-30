@@ -37,7 +37,7 @@ const App = () => {
   const lastTickYRef = useRef(window.scrollY);
 
   useEffect(() => {
-    const TICK_PX = 120; // vibrate every 120px scrolled
+    const TICK_PX = 250; // vibrate every 250px scrolled
 
     const onScroll = () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
@@ -46,7 +46,7 @@ const App = () => {
       if (navigator.vibrate) {
         const delta = Math.abs(window.scrollY - lastTickYRef.current);
         if (delta >= TICK_PX) {
-          navigator.vibrate([2, 50, 2]);
+          navigator.vibrate(15);
           lastTickYRef.current = window.scrollY;
         }
       }
