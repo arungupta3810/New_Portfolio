@@ -121,10 +121,10 @@ const LeadForm = () => {
       <div className="container">
         <span className="eyebrow">07 — Let's Talk</span>
         <h2 style={{ marginTop: 32, maxWidth: "22ch" }}>
-          Tell me what you're <span className="italic" style={{ color: "var(--accent)" }}>building.</span>
+          Let's <span className="italic" style={{ color: "var(--accent)" }}>connect.</span>
         </h2>
         <p className="lead-form-sub">
-          Drop your details and I'll get back to you within the day.
+          Hiring, a freelance project, or just want to talk tech — drop me a note and I'll get back to you within the day.
         </p>
 
         {status === "success" ? (
@@ -150,7 +150,7 @@ const LeadForm = () => {
               </div>
 
               <p className="lfs-headline lfs-item">You're all set!</p>
-              <p className="lfs-sub lfs-item">Your message is on its way. I'll get back to you within the day — usually sooner.</p>
+              <p className="lfs-sub lfs-item">Got it — I'll read your message and get back to you within the day, usually sooner.</p>
 
               <div className="lfs-meta lfs-item">
                 <span className="lfs-meta-dot" />
@@ -186,7 +186,7 @@ const LeadForm = () => {
                 <input
                   id="lf-email"
                   type="email"
-                  placeholder="you@company.com"
+                  placeholder="you@email.com"
                   value={form.email}
                   onChange={set("email")}
                   onBlur={blur("email")}
@@ -200,7 +200,7 @@ const LeadForm = () => {
               <textarea
                 id="lf-message"
                 rows="5"
-                placeholder="Describe the role, project, or problem — the more context, the better."
+                placeholder="Share the role, project, or idea — a hiring inquiry, freelance brief, or just a conversation starter."
                 value={form.message}
                 onChange={set("message")}
                 onBlur={blur("message")}

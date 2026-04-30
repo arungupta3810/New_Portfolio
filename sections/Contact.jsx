@@ -18,6 +18,9 @@ const Contact = () =>
         <a href="https://linkedin.com/in/arun-gupta-148872194" target="_blank" rel="noreferrer" className="btn" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 80])}>
           LinkedIn DM <span className="arrow">↗</span>
         </a>
+        <a href="https://api.whatsapp.com/send/?phone=%2B918652864081&text&type=phone_number&app_absent=0" target="_blank" rel="noreferrer" className="btn" onClick={() => navigator.vibrate && navigator.vibrate([40, 20, 80])}>
+          WhatsApp <span className="arrow">↗</span>
+        </a>
       </div>
 
       <div className="footer">

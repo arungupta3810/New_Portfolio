@@ -52,9 +52,21 @@ const App = () => {
       }
     };
 
+    const unlockVibration = () => {
+      if (navigator.vibrate) navigator.vibrate(0);
+      window.removeEventListener("touchstart", unlockVibration);
+      window.removeEventListener("click", unlockVibration);
+    };
+    window.addEventListener("touchstart", unlockVibration, { passive: true });
+    window.addEventListener("click", unlockVibration);
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("touchstart", unlockVibration);
+      window.removeEventListener("click", unlockVibration);
+    };
   }, []);
 
   const navClick = () => {
